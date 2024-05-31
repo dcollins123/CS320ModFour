@@ -17,6 +17,10 @@ public class TaskService {
         tasks.remove(taskId);
     }
 
+    public Task getTask(String taskId) {
+        return tasks.get(taskId);
+    }
+
     public void updateTaskName(String taskId, String newName) {
         Task task = tasks.get(taskId);
         if (task != null) {

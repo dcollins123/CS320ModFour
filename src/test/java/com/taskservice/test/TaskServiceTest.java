@@ -3,7 +3,6 @@ package com.taskservice.test;
 import com.taskservice.TaskService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class TaskServiceTest {
@@ -15,29 +14,29 @@ class TaskServiceTest {
     }
 
     @Test
-    void testAddTask() {
-        taskService.addTask("1234567890", "Task 1", "Description 1");
-        assertThrows(IllegalArgumentException.class, () -> taskService.addTask("1234567890", "Task 1", "Description 1"));
+    void addTaskTest() {
+        taskService.addTask("1", "Task Testing", "Test. Test. This is a test.");
+        assertThrows(IllegalArgumentException.class, () -> taskService.addTask("1", "Task Testing", "Test. Test. This is a test."));
     }
 
     @Test
-    void testDeleteTask() {
-        taskService.addTask("1234567890", "Task 1", "Description 1");
-        taskService.deleteTask("1234567890");
-        assertThrows(IllegalArgumentException.class, () -> taskService.updateTaskName("1234567890", "Updated Task Name"));
+    void deleteTaskTest() {
+        taskService.addTask("1", "Task Testing", "Test. Test. This is a test.");
+        taskService.deleteTask("1");
+        assertThrows(IllegalArgumentException.class, () -> taskService.updateTaskName("1", "Updated Task Testing"));
     }
 
     @Test
-    void testUpdateTaskName() {
-        taskService.addTask("1234567890", "Task 1", "Description 1");
-        taskService.updateTaskName("1234567890", "Updated Task Name");
-        assertThrows(IllegalArgumentException.class, () -> taskService.updateTaskName("9999999999", "Updated Task Name"));
+    void updateTaskNameTest() {
+        taskService.addTask("1", "Task Testing", "Test. Test. This is a test.");
+        taskService.updateTaskName("1", "Updated Task Testing");
+        assertThrows(IllegalArgumentException.class, () -> taskService.updateTaskName("2", "Updated Task Testing"));
     }
 
     @Test
-    void testUpdateTaskDescription() {
-        taskService.addTask("1234567890", "Task 1", "Description 1");
-        taskService.updateTaskDescription("1234567890", "Updated Task Description");
-        assertThrows(IllegalArgumentException.class, () -> taskService.updateTaskDescription("9999999999", "Updated Task Description"));
+    void updateTaskDescriptionTest() {
+        taskService.addTask("1", "Task Testing", "Test. Test. This is a test.");
+        taskService.updateTaskDescription("1", "Updated test description");
+        assertThrows(IllegalArgumentException.class, () -> taskService.updateTaskDescription("2", "Updated test description"));
     }
 }

@@ -10,10 +10,10 @@ public class Task {
             throw new IllegalArgumentException("Invalid task ID");
         }
         if (name == null || name.length() > 20) {
-            throw new IllegalArgumentException("Invalid task name");
+            throw new IllegalArgumentException("Invalid name");
         }
         if (description == null || description.length() > 50) {
-            throw new IllegalArgumentException("Invalid task description");
+            throw new IllegalArgumentException("Invalid description");
         }
         this.taskId = taskId;
         this.name = name;
@@ -28,20 +28,20 @@ public class Task {
         return name;
     }
 
-    public void setName(String name) {
-        if (name == null || name.length() > 20) {
-            throw new IllegalArgumentException("Invalid task name");
-        }
-        this.name = name;
-    }
-
     public String getDescription() {
         return description;
     }
 
+    public void setName(String name) {
+        if (name == null || name.length() > 20) {
+            throw new IllegalArgumentException("Invalid name");
+        }
+        this.name = name;
+    }
+
     public void setDescription(String description) {
         if (description == null || description.length() > 50) {
-            throw new IllegalArgumentException("Invalid task description");
+            throw new IllegalArgumentException("Invalid description");
         }
         this.description = description;
     }
